@@ -1,9 +1,14 @@
-Profile: CommonsPatient
+Profile: PatientSEVendorLite
 Parent: SEBasePatient
 Description: "Simplified patient for identification for communication between systems in Sweden"
 
 * identifier[personnummer] ..1
 * identifier[samordningsnummer] ..1
+
+* identifier[personnummer].value 1.. MS
+* identifier[samordningsnummer].value 1.. MS
+* identifier[nationelltReservnummer].value 1.. MS
+
 * identifier 1..1
 * deceased[x] only boolean
 
@@ -13,6 +18,9 @@ Description: "Simplified patient for identification for communication between sy
     and identifier
     and deceasedBoolean
   MS
+
+* telecom.system 1.. MS
+* telecom.value 1.. MS
 
 * link ..0
 * active ..0
@@ -29,8 +37,8 @@ Description: "Simplified patient for identification for communication between sy
 * managingOrganization ..0
 
 
-Instance: CommonsPatientExample
-InstanceOf: CommonsPatient
+Instance: PatientSEVendorLiteExample
+InstanceOf: PatientSEVendorLite
 Description: "Patient example."
 * name
   * given[0] = "Kalle"
